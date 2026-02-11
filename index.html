@@ -1,101 +1,117 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Primalika</title>
+    <title>Perpustakaan Primalika</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
 
     <style>
         body {
-            font-family: "Playfair Display", serif;
-            font-size: 170%;
-            background-color: #f1f8e9; /* hijau muda */
-            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-            background-repeat: repeat;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #a8e063, #56ab2f);
         }
 
-        .box {
-            background: #ffffff;
-            width: 70%;
-            margin: auto;
-            padding: 35px;
-            border-radius: 15px;
-            border-top: 8px solid #81c784; /* hijau */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-        }
-
-        h1 {
-            color: #2e7d32; /* hijau tua */
-            text-align: center;
-            font-weight: bold;
-        }
-
-        hr {
-            border-top: 3px solid #81c784;
-            width: 65%;
-        }
-
-        .info {
-            text-align: justify;
-            margin-top: 25px;
-            line-height: 1.7;
-        }
-
-        .highlight {
-            color: #2e7d32;
-            font-weight: bold;
-        }
-
-        .search-box {
-            padding: 8px;
-            width: 60%;
-            border-radius: 8px;
-            border: 1px solid #81c784;
-        }
-
-        .search-btn {
-            padding: 8px 15px;
-            border-radius: 8px;
+        .navbar {
+            background: rgba(0,0,0,0.2);
             border: none;
-            background-color: #81c784;
-            color: white;
-            font-weight: bold;
         }
 
-        .search-btn:hover {
-            background-color: #66bb6a;
+        .navbar-nav {
+            float: none;
+            text-align: center;
+        }
+
+        .navbar-nav > li {
+            float: none;
+            display: inline-block;
+        }
+
+        .navbar-nav > li > a {
+            color: white !important;
+            font-weight: 600;
+            padding: 15px 25px;
+            font-size: 16px;
+        }
+
+        .navbar-nav > li > a:hover {
+            background: rgba(255,255,255,0.2) !important;
+            border-radius: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 600;
+        }
+
+        .card-box {
+            background: white;
+            width: 70%;
+            margin: -40px auto 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .jam {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #2e7d32;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-<center>
-    <br><br>
 
-    <div class="box">
-        <h1>Welcome</h1>
+<nav class="navbar">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Layanan</a></li>
+        </ul>
+    </div>
+</nav>
 
-        <p style="text-align:center;">
-            Website ini dibuat sebagai bagian dari pemenuhan tugas mata kuliah
-            <span class="highlight">Pengembangan Web Perpustakaan</span>.
-        </p>
+<div class="hero">
+    <h1>Selamat Datang di Perpustakaan Primalika</h1>
+    <p>Tempat literasi, inspirasi, dan sumber informasi mahasiswa.</p>
+</div>
 
-        <hr>
-
-        <div style="margin-top:20px; text-align:center;">
-            <input type="text" placeholder="Cari koleksi buku..." class="search-box">
-            <button class="search-btn">Cari</button>
-        </div>
-
-        <div class="info">
-            Nama: Primalika<br>
-            NIM: 230709072<br>
-            Kelas: B<br>
-            Universitas: Universitas Sumatera Utara
-        </div>
+<div class="card-box">
+    <div class="jam">
+        📚 Jam Operasional<br>
+        Senin – Jumat : 08.00 – 16.00 WIB
     </div>
 
-</center>
+    <hr>
+
+    <p><strong>Primalika</strong></p>
+    <p>230709072 | Kelas B</p>
+    <p>Universitas Sumatera Utara</p>
+</div>
+
+<div class="footer">
+    © 2026 Perpustakaan Primalika
+</div>
+
 </body>
 </html>
+
