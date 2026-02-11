@@ -61,11 +61,56 @@
             text-align: center;
         }
 
+        /* SEARCH STYLE BARU */
+        .search-input {
+            padding: 12px 20px;
+            width: 60%;
+            border-radius: 30px;
+            border: 2px solid #56ab2f;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 15px rgba(86,171,47,0.5);
+        }
+
+        .search-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(to right,#2e7d32,#66bb6a);
+            color: white;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+
+        .search-button:hover {
+            transform: scale(1.05);
+        }
+
+        .book-card {
+            background: #f1f8e9;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            min-width: 220px;
+            font-weight: 500;
+            color: #2e7d32;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
         .jam {
             background: #e8f5e9;
             padding: 15px;
             border-radius: 10px;
-            margin: 20px 0;
+            margin-top: 30px;
             color: #2e7d32;
             font-weight: 500;
         }
@@ -84,8 +129,10 @@
     <div class="container">
         <ul class="nav navbar-nav">
             <li><a href="#">Beranda</a></li>
-            <li><a href="#">Profil</a></li>
             <li><a href="#">Layanan</a></li>
+            <li><a href="cv.html" target="_blank">Curriculum Vitae</a></li>
+            <li><a href="https://instagram.com/primaliika" target="_blank">Media Sosial</a></li>
+            <li><a href="video.mp4" target="_blank">Audio dan Video</a></li>
         </ul>
     </div>
 </nav>
@@ -96,6 +143,26 @@
 </div>
 
 <div class="card-box">
+
+
+    <div style="margin-bottom:30px;">
+        <input type="text" id="searchInput"
+            class="search-input"
+            placeholder="Masukkan kata kunci untuk mencari koleksi...">
+
+        <button onclick="searchBook()" class="search-button">
+            Cari
+        </button>
+    </div>
+
+    <div id="bookContainer" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+
+        <div class="book-card">Pemrograman Web Dasar</div>
+        <div class="book-card">Manajemen Perpustakaan Modern</div>
+        <div class="book-card">Literasi Informasi</div>
+
+    </div>
+
     <div class="jam">
         📚 Jam Operasional<br>
         Senin – Jumat : 08.00 – 16.00 WIB
@@ -106,12 +173,28 @@
     <p><strong>Primalika</strong></p>
     <p>230709072 | Kelas B</p>
     <p>Universitas Sumatera Utara</p>
+
 </div>
 
 <div class="footer">
     © 2026 Perpustakaan Primalika
 </div>
 
+<script>
+function searchBook() {
+    var input = document.getElementById("searchInput").value.toLowerCase();
+    var cards = document.getElementsByClassName("book-card");
+
+    for (var i = 0; i < cards.length; i++) {
+        var text = cards[i].textContent.toLowerCase();
+        if (text.indexOf(input) > -1) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 </body>
 </html>
-
