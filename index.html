@@ -40,6 +40,44 @@
             border-radius: 20px;
         }
 
+        .modal-login {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #2e7d32;
+            color: white;
+            font-weight: bold;
+        }
+
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -61,18 +99,12 @@
             text-align: center;
         }
 
-        /* SEARCH STYLE BARU */
         .search-input {
             padding: 12px 20px;
             width: 60%;
             border-radius: 30px;
             border: 2px solid #56ab2f;
             outline: none;
-            transition: 0.3s;
-        }
-
-        .search-input:focus {
-            box-shadow: 0 0 15px rgba(86,171,47,0.5);
         }
 
         .search-button {
@@ -83,11 +115,6 @@
             color: white;
             font-weight: 600;
             margin-left: 10px;
-            transition: 0.3s;
-        }
-
-        .search-button:hover {
-            transform: scale(1.05);
         }
 
         .book-card {
@@ -95,15 +122,10 @@
             padding: 15px 20px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
             min-width: 220px;
             font-weight: 500;
             color: #2e7d32;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            margin:10px;
         }
 
         .jam {
@@ -125,6 +147,34 @@
 
 <body>
 
+<div id="loginModal" class="modal-login">
+    <div class="login-box">
+
+        <h3>Library Login</h3>
+
+        <form action="#" method="POST" onsubmit="return login(event)">
+
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Nomor Telepon:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <input type="submit" value="login">
+
+        </form>
+
+    </div>
+</div>
+
+<div id="mainContent" style="display:none;">
+
 <nav class="navbar">
     <div class="container">
         <ul class="nav navbar-nav">
@@ -132,7 +182,8 @@
             <li><a href="#">Layanan</a></li>
             <li><a href="cv.html" target="_blank">Curriculum Vitae</a></li>
             <li><a href="https://instagram.com/primaliika" target="_blank">Media Sosial</a></li>
-            <li><a href="https://youtu.be/k908svzBwII?si=mg3M-EgGxa2yNa9g" target="_blank">Audio dan Video</a></li>
+            <li><a href="https://youtu.be/skiKX1aosSw?si=sE9kyYynNSG_KCXu" target="_blank">Video</a></li>
+            <li><a href="aboutus.html" target="_blank">About Us</a></li>
         </ul>
     </div>
 </nav>
@@ -144,23 +195,19 @@
 
 <div class="card-box">
 
+    <h3 style="margin-bottom:20px;">Cari Koleksi Buku</h3>
 
-    <div style="margin-bottom:30px;">
-        <input type="text" id="searchInput"
-            class="search-input"
-            placeholder="Masukkan kata kunci untuk mencari koleksi...">
+    <input type="text" id="searchInput" class="search-input"
+        placeholder="Masukkan kata kunci pencarian...">
 
-        <button onclick="searchBook()" class="search-button">
-            Cari
-        </button>
-    </div>
+    <button onclick="searchBook()" class="search-button">
+        Cari
+    </button>
 
-    <div id="bookContainer" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-
+    <div id="bookContainer" style="display:flex; justify-content:center; flex-wrap:wrap;">
         <div class="book-card">Pemrograman Web Dasar</div>
         <div class="book-card">Manajemen Perpustakaan Modern</div>
         <div class="book-card">Literasi Informasi</div>
-
     </div>
 
     <div class="jam">
@@ -180,7 +227,16 @@
     © 2026 Primalika Garden Library
 </div>
 
+</div>
+
 <script>
+function login(event) {
+    event.preventDefault();
+
+    document.getElementById("loginModal").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+}
+
 function searchBook() {
     var input = document.getElementById("searchInput").value.toLowerCase();
     var cards = document.getElementsByClassName("book-card");
