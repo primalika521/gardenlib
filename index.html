@@ -178,12 +178,17 @@
 <nav class="navbar">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Layanan</a></li>
-            <li><a href="cv.html" target="_blank">Curriculum Vitae</a></li>
-            <li><a href="https://instagram.com/primaliika" target="_blank">Media Sosial</a></li>
-            <li><a href="https://youtu.be/skiKX1aosSw?si=sE9kyYynNSG_KCXu" target="_blank">Video</a></li>
-            <li><a href="aboutus.html" target="_blank">About Us</a></li>
+    <li><a href="#">Beranda</a></li>
+    <li><a href="#">Layanan</a></li>
+    <li><a href="cv.html" target="_blank">Curriculum Vitae</a></li>
+    <li><a href="https://instagram.com/primaliika" target="_blank">Media Sosial</a></li>
+    <li><a href="https://youtu.be/skiKX1aosSw?si=sE9kyYynNSG_KCXu" target="_blank">Video</a></li>
+    <li><a href="aboutus.html" target="_blank">About Us</a></li>
+    <li style="float:right;">
+        <a href="#" onclick="logout()" style="color:#ffeb3b;">Logout</a>
+    </li>
+</ul>
+
         </ul>
     </div>
 </nav>
@@ -236,7 +241,6 @@ function login(event) {
     document.getElementById("loginModal").style.display = "none";
     document.getElementById("mainContent").style.display = "block";
 }
-
 function searchBook() {
     var input = document.getElementById("searchInput").value.toLowerCase();
     var cards = document.getElementsByClassName("book-card");
@@ -249,6 +253,10 @@ function searchBook() {
             cards[i].style.display = "none";
         }
     }
+}
+function logout() {
+    document.getElementById("mainContent").style.display = "none";
+    document.getElementById("loginModal").style.display = "flex";
 }
 </script>
 
